@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace DurgeshCoreAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+   [Route("api/[controller]")]
+   [ApiController]
     public class EmpController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
@@ -59,13 +59,13 @@ namespace DurgeshCoreAPI.Controllers
         }
         [Route("Post/Emp/Edit")]
         [HttpGet]
-        public HttpResponseMessage Edit(int id)
+        public Employee Edit(int id)
         {
-            var Edit = _db.Employees.Where(f => f.id == id).FirstOrDefault();
-            _db.Employees.Remove(Edit);
+            var edit = _db.Employees.Where(f => f.id == id).FirstOrDefault();
+            //_db.Employees.Remove(Edit);
 
-           HttpResponseMessage result = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
-            return result;
+          // HttpResponseMessage result = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
+            return edit;
         }
 
     }
